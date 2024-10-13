@@ -19,5 +19,16 @@ public class Main {
         System.out.println(banco.toString());
         System.out.println(enderecoAlexandre.toString());
         System.out.println(alexandre.toString());
+
+        ContaCorrente contaCorrente = new ContaCorrente(1357, "001", 235689);
+        contaCorrente.depositar(1413.04);
+        contaCorrente.sacar(25);
+        System.out.println(contaCorrente.toString());
+
+        ContaPoupanca contaPoupanca = new ContaPoupanca(1357, 13, 124679);
+        contaCorrente.transferir(364.26, contaPoupanca);
+        System.out.println(contaPoupanca.toString());
+        contaPoupanca.consultarSaldo();
+        contaPoupanca.sacar(2000);
     }
 }

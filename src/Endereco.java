@@ -37,7 +37,7 @@ public class Endereco {
     }
 
     public void setLinha2(String linha2) {
-        linha2 = linha2;
+        this.linha2 = linha2;
     }
 
     public String getCidade() {
