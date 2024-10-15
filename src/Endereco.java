@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+
 public class Endereco {
     private String linha1;
     private String linha2;
@@ -10,7 +12,14 @@ public class Endereco {
         this.linha2 = linha2;
         this.cidade = cidade;
         this.estado = estado;
-        this.cep = cep;
+        this.cep = formatarCep(cep);
+    }
+
+    public static String formatarCep(String cep) {
+        if (cep == null || cep.length() != 8 || !cep.matches("\\d+")) {
+            throw new IllegalArgumentException("CEP inválido");
+        }
+        return cep.substring(0, 5) + "-" + cep.substring(5, 8);
     }
 
     @Override

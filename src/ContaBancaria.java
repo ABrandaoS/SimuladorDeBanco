@@ -7,7 +7,11 @@ public abstract class ContaBancaria implements Conta {
 
     public ContaBancaria(int agencia, String tipoCorrente001, int contaCorrente) {
         this.agencia = agencia;
-        this.tipoCorrente = Integer.parseInt(tipoCorrente001);
+        try {
+            this.tipoCorrente = Integer.parseInt(tipoCorrente001);
+        } catch (NumberFormatException e) {
+            System.err.println("Tipo de conta inválida. Informe o tipo válido: 001");
+        }
         this.numeroConta = contaCorrente;
     }
 
