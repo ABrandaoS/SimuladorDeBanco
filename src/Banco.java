@@ -1,14 +1,21 @@
 public class Banco {
     private String razaoSocial;
     private String cnpj;
-    private int codigoCompe;
+    private String codigoCompe;
     private String contato;
 
+    public Banco(String nomeBanco, String cnpjBanco, String codigoCompe, String contatoBanco) {
+        this.razaoSocial = nomeBanco;
+        this.cnpj = formatarCnpj(cnpjBanco);
+        this.codigoCompe = codigoCompe;
+        this.contato = contatoBanco;
+    }
+
     private static String formatarCnpj(String cnpj) {
-        if (cnpj == null || cnpj.length() != 14 || !cnpj.matches("\\d+")) {
+        if (cnpj == null || !cnpj.matches("\\d{14}")) {
             throw new IllegalArgumentException("CNPJ inválido");
         }
-        return cnpj.substring(0,2) + "." + cnpj.substring(2,5) + "." + cnpj.substring(5,8) + "/" + cnpj.substring(8, 12) + "-" + cnpj.substring(12,14);
+        return cnpj;
     }
 
     private static String formatarCompe(int codigoCompe) {
@@ -16,13 +23,6 @@ public class Banco {
             throw new IllegalArgumentException("Código COMPE deve estar entre 0 e 999.");
         }
         return String.format("%03d", codigoCompe);
-    }
-
-    public Banco(String nome, String cnpj, int codigo, String contato) {
-        this.razaoSocial = nome;
-        this.cnpj = formatarCnpj(cnpj);
-        this.codigoCompe = codigo;
-        this.contato = contato;
     }
 
     @Override
@@ -51,11 +51,11 @@ public class Banco {
         this.cnpj = cnpj;
     }
 
-    public int getCodigoCompe() {
+    public String getCodigoCompe() {
         return codigoCompe;
     }
 
-    public void setCodigoCompe(int codigoCompe) {
+    public void setCodigoCompe(String codigoCompe) {
         this.codigoCompe = codigoCompe;
     }
 
