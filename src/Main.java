@@ -3,7 +3,7 @@ public class Main {
     public static void main(String[] args) {
 
         try {
-            Banco banco = new Banco();
+            Banco banco = new Banco("BANCO DIGITAL", "12345678901234", 15, "ME@CONTATO.COM");
 
             Endereco enderecoAlexandre = new Endereco(
                     "Q46 C15",
@@ -12,23 +12,26 @@ public class Main {
                     "DF",
                     "72746006"
             );
+
             Pessoa alexandre = new Pessoa(
                     "Alexandre Brandão Santana",
                     "12345678900",
-                    "26/04/1994",
+                    "01011900",
                     enderecoAlexandre);
-            System.out.println(banco.toString());
-            System.out.println(enderecoAlexandre.toString());
-            System.out.println(alexandre.toString());
 
             ContaCorrente contaCorrente = new ContaCorrente(1357, "001", 235689);
+
+            ContaPoupanca contaPoupanca = new ContaPoupanca(1357, 13, 124679);
+
+            System.out.println(banco.toString());
+            System.out.println(alexandre.toString());
+            System.out.println(enderecoAlexandre.toString());
+            System.out.println(contaCorrente.toString());
+            System.out.println(contaPoupanca.toString());
+
             contaCorrente.depositar(1413.04);
             contaCorrente.sacar(25);
-            System.out.println(contaCorrente.toString());
-
-            ContaPoupanca contaPoupanca = new ContaPoupanca(1357, 013, 124679);
             contaCorrente.transferir(364.26, contaPoupanca);
-            System.out.println(contaPoupanca.toString());
             contaPoupanca.consultarSaldo();
             contaPoupanca.sacar(2000);
 

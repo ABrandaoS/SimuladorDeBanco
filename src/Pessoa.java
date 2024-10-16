@@ -7,7 +7,7 @@ public class Pessoa {
     public Pessoa(String nome, String cpf, String dataNascimento, Endereco endereco) {
         this.nome = nome;
         this.cpf = formatarCpf(cpf);
-        this.dataNascimento = dataNascimento;
+        this.dataNascimento = formatarDataNascimento(dataNascimento);
         this.endereco = endereco;
     }
 
@@ -16,6 +16,12 @@ public class Pessoa {
             throw new IllegalArgumentException("CPF inválido");
         }
         return cpf.substring(0,3) + "." + cpf.substring(3, 6) + "." + cpf.substring(6,9) + "-" + cpf.substring(9, 11);
+    }
+
+    public static String formatarDataNascimento(String dataNascimento){
+        if (dataNascimento == null || dataNascimento.length() != 8 || !dataNascimento.matches("\\d+")) {
+            throw new IllegalArgumentException("Data nascimento inválida");
+        } return dataNascimento.substring(0, 2) + "/" + dataNascimento.substring(2, 4) + "/" + dataNascimento.substring(4, 8);
     }
 
     @Override

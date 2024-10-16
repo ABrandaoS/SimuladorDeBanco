@@ -1,38 +1,69 @@
 public class Banco {
-    private final String NOME = "BANCO DIGITAL";
-    private final String CNPJ = "12.345.678/0001-00";
-    private final int CODIGO = 162;
-    private final String ENDERECO = "WWW.INTERNET.COM";
-    private final String CONTATO = "CALL@ME.COM";
+    private String razaoSocial;
+    private String cnpj;
+    private int codigoCompe;
+    private String contato;
+
+    private static String formatarCnpj(String cnpj) {
+        if (cnpj == null || cnpj.length() != 14 || !cnpj.matches("\\d+")) {
+            throw new IllegalArgumentException("CNPJ inválido");
+        }
+        return cnpj.substring(0,2) + "." + cnpj.substring(2,5) + "." + cnpj.substring(5,8) + "/" + cnpj.substring(8, 12) + "-" + cnpj.substring(12,14);
+    }
+
+    private static String formatarCompe(int codigoCompe) {
+        if (codigoCompe < 0 || codigoCompe > 999) {
+            throw new IllegalArgumentException("Código COMPE deve estar entre 0 e 999.");
+        }
+        return String.format("%03d", codigoCompe);
+    }
+
+    public Banco(String nome, String cnpj, int codigo, String contato) {
+        this.razaoSocial = nome;
+        this.cnpj = formatarCnpj(cnpj);
+        this.codigoCompe = codigo;
+        this.contato = contato;
+    }
 
     @Override
     public String toString() {
         return "Banco{" +
-                "NOME='" + NOME + '\'' +
-                ", CNPJ='" + CNPJ + '\'' +
-                ", CODIGO=" + CODIGO +
-                ", ENDERECO='" + ENDERECO + '\'' +
-                ", CONTATO='" + CONTATO + '\'' +
+                "NOME='" + razaoSocial + '\'' +
+                ", CNPJ='" + cnpj + '\'' +
+                ", CODIGO=" + codigoCompe +
+                ", CONTATO='" + contato + '\'' +
                 '}';
     }
 
-    public String getNOME() {
-        return NOME;
+    public String getRazaoSocial() {
+        return razaoSocial;
     }
 
-    public String getCNPJ() {
-        return CNPJ;
+    public void setRazaoSocial(String razaoSocial) {
+        this.razaoSocial = razaoSocial;
     }
 
-    public int getCODIGO() {
-        return CODIGO;
+    public String getCnpj() {
+        return cnpj;
     }
 
-    public String getENDERECO() {
-        return ENDERECO;
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
-    public String getCONTATO() {
-        return CONTATO;
+    public int getCodigoCompe() {
+        return codigoCompe;
+    }
+
+    public void setCodigoCompe(int codigoCompe) {
+        this.codigoCompe = codigoCompe;
+    }
+
+    public String getContato() {
+        return contato;
+    }
+
+    public void setContato(String contato) {
+        this.contato = contato;
     }
 }

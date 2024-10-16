@@ -21,8 +21,6 @@ public abstract class ContaBancaria implements Conta {
         this.numeroConta = contaPoupanca;
     }
 
-
-
     @Override
     public void consultarSaldo(){
         System.out.println("Saldo R$ " + this.saldo);
@@ -33,7 +31,7 @@ public abstract class ContaBancaria implements Conta {
         System.out.println("Realizando saque de R$ " + valor);
         if (valor <= this.saldo) {
             this.saldo -= valor;
-            System.out.println("Sacado R$ " + valor);
+            System.out.println("Valor sacado R$ " + valor);
         } else {
             System.err.println("Você tá quebrado!");
         }
@@ -43,7 +41,7 @@ public abstract class ContaBancaria implements Conta {
     public void depositar(double valor) {
         System.out.println("Realizando depósito de R$ " + valor);
         this.saldo += valor;
-        System.out.println("Depositado R$ " + valor);
+        System.out.println("Valor depositado R$ " + valor);
     }
 
     @Override
