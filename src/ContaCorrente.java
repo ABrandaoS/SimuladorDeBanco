@@ -1,6 +1,7 @@
 public class ContaCorrente extends ContaBancaria{
-    public ContaCorrente(int agencia, String tipoCorrente001, int contaCorrente){
-        super(agencia, tipoCorrente001, contaCorrente);
+
+    public ContaCorrente(Banco banco, int agencia, String tipoCorrente001, int contaCorrente){
+        super(banco, agencia, tipoCorrente001, contaCorrente);
     }
 
     @Override

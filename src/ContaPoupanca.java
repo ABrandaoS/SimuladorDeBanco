@@ -1,5 +1,9 @@
 public class ContaPoupanca extends ContaBancaria{
 
+    public ContaPoupanca(Banco banco, int agencia, int tipoPoupanca013, int contaPoupanca) {
+        super(banco, agencia, tipoPoupanca013, contaPoupanca);
+    }
+
     @Override
     public String toString() {
         return "ContaPoupanca{" +
@@ -8,10 +12,5 @@ public class ContaPoupanca extends ContaBancaria{
                 ", numeroConta=" + numeroConta +
                 ", saldo=" + saldo +
                 '}';
-    }
-
-    public ContaPoupanca(int agencia, int tipoPoupanca013, int contaPoupanca) {
-        super(agencia, tipoPoupanca013, contaPoupanca);
-
     }
 }

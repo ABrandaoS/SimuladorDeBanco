@@ -1,11 +1,13 @@
 public abstract class ContaBancaria implements Conta {
+    protected Banco banco;
     protected int agencia;
     protected int tipoCorrente;
     protected int tipoPoupanca;
     protected int numeroConta;
     protected double saldo;
 
-    public ContaBancaria(int agencia, String tipoCorrente001, int contaCorrente) {
+    public ContaBancaria(Banco banco, int agencia, String tipoCorrente001, int contaCorrente) {
+        this.banco = banco;
         this.agencia = agencia;
         try {
             this.tipoCorrente = Integer.parseInt(tipoCorrente001);
@@ -15,7 +17,8 @@ public abstract class ContaBancaria implements Conta {
         this.numeroConta = contaCorrente;
     }
 
-    public ContaBancaria(int agencia, int tipoPoupanca013, int contaPoupanca) {
+    public ContaBancaria(Banco banco, int agencia, int tipoPoupanca013, int contaPoupanca) {
+        this.banco = banco;
         this.agencia = agencia;
         this.tipoPoupanca = tipoPoupanca013;
         this.numeroConta = contaPoupanca;
@@ -55,5 +58,53 @@ public abstract class ContaBancaria implements Conta {
         } else {
             System.err.println("Você tá quebrado!!");
         }
+    }
+
+    public Banco getBanco() {
+        return banco;
+    }
+
+    public void setBanco(Banco banco) {
+        this.banco = banco;
+    }
+
+    public int getAgencia() {
+        return agencia;
+    }
+
+    public void setAgencia(int agencia) {
+        this.agencia = agencia;
+    }
+
+    public int getTipoCorrente() {
+        return tipoCorrente;
+    }
+
+    public void setTipoCorrente(int tipoCorrente) {
+        this.tipoCorrente = tipoCorrente;
+    }
+
+    public int getTipoPoupanca() {
+        return tipoPoupanca;
+    }
+
+    public void setTipoPoupanca(int tipoPoupanca) {
+        this.tipoPoupanca = tipoPoupanca;
+    }
+
+    public int getNumeroConta() {
+        return numeroConta;
+    }
+
+    public void setNumeroConta(int numeroConta) {
+        this.numeroConta = numeroConta;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
     }
 }

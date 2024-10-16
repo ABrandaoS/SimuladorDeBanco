@@ -19,9 +19,9 @@ public class Main {
                     "01011900",
                     enderecoAlexandre);
 
-            ContaCorrente contaCorrente = new ContaCorrente(1357, "001", 235689);
+            ContaCorrente contaCorrente = new ContaCorrente(banco, 2521, "1", 51231);
 
-            ContaPoupanca contaPoupanca = new ContaPoupanca(1357, 13, 124679);
+            ContaPoupanca contaPoupanca = new ContaPoupanca(banco, 3125, 13, 86273);
 
             System.out.println(banco.toString());
             System.out.println(alexandre.toString());
